@@ -84,5 +84,11 @@ async fn main() {
 async fn handle_fetch(up_token: String, _store_file: ConfigPath) {
     let client = up_client::UpClient::new(up_token);
 
-    client.list_transactions(None, None).await;
+    let transactions = client.list_transactions(None, None).await;
+
+    // for t in transactions {
+    //     dbg!(t);
+    // }
+
+    dbg!(transactions.len());
 }
